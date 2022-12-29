@@ -11,9 +11,9 @@ import { styles } from '../theme/appTheme'
 const menuItems : menuItem[]= [
 
 {
-  name: 'Animation101',
+  name: 'Seccion1',
   icon:'cube-outline',
-  component:'Animation101Screen'
+  component:'Seccion1Screen'
 },
 
 {
@@ -27,11 +27,10 @@ const menuItems : menuItem[]= [
 
 export const HomeScreen = () => {
   
-  const {top} = useSafeAreaInsets();
 
   const renderListHeader = () => {
     return(
-      <View style={{marginTop: top + 20}}>
+      <View style={{marginBottom:20}}>
      <Text style={styles.title}> Opciones de menu</Text>
 
       </View>
