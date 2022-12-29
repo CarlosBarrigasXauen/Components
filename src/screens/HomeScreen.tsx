@@ -12,15 +12,26 @@ const menuItems : menuItem[]= [
 
 {
   name: 'Seccion1',
-  icon:'cube-outline',
+  icon:'book-outline',
   component:'Seccion1Screen'
 },
 
 {
-  name: 'Animation102',
-  icon:'cube-outline',
-  component:'Animation102Screen'
-}
+  name: 'Seccion2',
+  icon:'book-outline',
+  component:'Seccion2Screen'
+},
+{
+  name: 'Seccion3',
+  icon:'book-outline',
+  component:'Seccion3Screen'
+},
+{
+  name: 'Seccion4',
+  icon:'book-outline',
+  component:'Seccion4Screen'
+},
+
 
 ]
 
@@ -31,7 +42,7 @@ export const HomeScreen = () => {
   const renderListHeader = () => {
     return(
       <View style={{marginBottom:20}}>
-     <Text style={styles.title}> Opciones de menu</Text>
+     <Text style={styles.title}> Mi Curso</Text>
 
       </View>
     )

@@ -18,10 +18,17 @@ export const MenuLateral = () => {
       }, [100])
 
     return (
-    <Drawer.Navigator>
-        <Drawer.Screen name="LoginScreenn" component={LoginScreenn} />
-      <Drawer.Screen name="HomeScreen" component={HomeScreen} />
-      <Drawer.Screen name="Animation101Screen" component={Animation101Screen} />
+    <Drawer.Navigator
+    screenOptions={{
+        headerShown:false
+    }
+        
+    }>
+<Drawer.Screen name="LoginScreenn" component={LoginScreenn} />
+<Drawer.Screen name="StackNavigator" options={{title:'Home'}} component={StackNavigator} />
+
     </Drawer.Navigator>
+
+    
   );
 }

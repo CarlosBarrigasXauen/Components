@@ -11,6 +11,8 @@ interface Props extends StackScreenProps<any,any>{
 
 export const LoginScreenn = ({navigation}:Props) => {
 
+
+  
   const testCredentials = {
     username: 'ADMIN',
     password: 'ADMIN'
@@ -25,7 +27,7 @@ export const LoginScreenn = ({navigation}:Props) => {
 
       );
       
-      navigation.navigate('HomeScreen')
+      navigation.navigate('StackNavigator')
     } else {
       Alert.alert(
         'Login Fallido', '',
@@ -43,10 +45,13 @@ export const LoginScreenn = ({navigation}:Props) => {
   return (
     <>
     
+    
    <Background/>
    <KeyboardAvoidingView></KeyboardAvoidingView>
    <View style={LoginStyles.formContainer}>
     <Logo/>
+    
+    
 
     <Text style={LoginStyles.label} > Email  </Text>
    <TextInput   
