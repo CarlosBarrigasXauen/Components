@@ -19,7 +19,6 @@ export const Seccion2Screen = ({navigation}:Props) => {
         <View>                
 
         <Text>Breve explicacion de el porqué usamos TypeScript, nos explica como comenzar a preparar nuestros proyectos y nuestros primeros Functional Component.</Text>
-        <BotonPersonalizado texto="Volver a Mi Curso" color='#008CBA' onPress={ () => navigation.navigate('MiCursoScreen')} />
 
         </View>
     )
