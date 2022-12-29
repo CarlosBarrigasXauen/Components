@@ -8,10 +8,9 @@ import { useNavigation } from '@react-navigation/core';
 import { StackScreenProps } from '@react-navigation/stack';
 
 
- interface Props extends StackScreenProps<any, any>{};
 
 
-export const Seccion1Screen = ({navigation}:Props) => {
+export const Seccion1Screen = () => {
    
 
 

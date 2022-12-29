@@ -21,12 +21,14 @@ export const FlatListMenuItem = ({menuItem}:Props) => {
         onPress={() => navigation.navigate(menuItem.component)}
         >
         <View style={styles.container}>
-            <Icon
+            <Icon style={{marginLeft:10}}
             name={menuItem.icon}
-            color="gray"
-            size={23}
+            color="orange"
+            size={30}
             />
           <Text style={styles.itemText}>{menuItem.name} </Text>
+          <Text style={styles.itemText}>{menuItem.description} </Text>
+
         
         <View style={{flex:1}}/>
 
@@ -44,12 +46,18 @@ export const FlatListMenuItem = ({menuItem}:Props) => {
 const styles = StyleSheet.create({
 
     container:{
+
+        backgroundColor:'white',
+        borderRadius:10,
         flexDirection:'row'
     },
 
     itemText:{
         marginLeft:10,
-        fontSize:19,
+        alignSelf:'center',
+        justifyContent:'center',
+        fontSize:20,
+        fontWeight:'bold'
     },
 
    
