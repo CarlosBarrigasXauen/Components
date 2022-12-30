@@ -5,3 +5,7 @@ export interface menuItem {
     description:string
   }
   
+  export interface SeccionItem {
+    id     : string;
+    description   : string;
+}

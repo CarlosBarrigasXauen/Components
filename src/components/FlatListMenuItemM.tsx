@@ -11,15 +11,14 @@ interface Props {
     menuItem:menuItem
 }
 
-export const FlatListMenuItem = ({menuItem}:Props) => {
+export const FlatListMenuItemM = ({menuItem}:Props) => {
     const navigation = useNavigation<any>();
   
   
     return (
-       
         <TouchableOpacity
         activeOpacity={0.8}
-        onPress={() => navigation.navigate(menuItem.component)}
+        onPress={() => navigation.navigate('SeccionScreen')}
         >
         <View style={styles.container}>
             <Icon style={{marginLeft:10}}
@@ -41,8 +40,6 @@ export const FlatListMenuItem = ({menuItem}:Props) => {
 
         </View>
         </TouchableOpacity>
-      
-
       )
 }
 

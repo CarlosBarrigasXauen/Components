@@ -6,8 +6,9 @@ import { styles } from '../theme/appTheme';
 import { BotonPersonalizado } from '../components/BotonPersonalizado';
 import { useNavigation } from '@react-navigation/core';
 import { StackScreenProps } from '@react-navigation/stack';
+import { RootStackParams } from '../navigator/StackNavigator';
 
-
+interface Props extends StackScreenProps<RootStackParams,'SeccionScreen'>{};
 
 
 export const Seccion1Screen = () => {

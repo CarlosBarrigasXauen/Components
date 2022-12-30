@@ -3,42 +3,78 @@ import { FlatList, Text, View } from 'react-native'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 import Icon from 'react-native-vector-icons/Ionicons'
 import { FlatListMenuItem } from '../components/FlatListMenuItem'
+import { FlatListMenuItemM } from '../components/FlatListMenuItemM'
+
 import { menuItem } from '../interfaces/appinterfaces';
 import { styles } from '../theme/appTheme';
 
 
 
-const menuItemsHome : menuItem[]= [
+const menuItems : menuItem[]= [
 
 {
-  name: 'Mi Curso',
+  name: 'Seccion1:',
   icon:'book-outline',
-  component:'MiCursoScreen',
-  description:''
+  component:'SeccionScreen',
+  description:'Introducción'
 },
 
 {
-  name: 'Acerca De:',
+  name: 'Seccion2:',
   icon:'book-outline',
-  component:'Seccion2Screen',
+  component:'SeccionScreen',
   description:'Reforzamiento'
 },
 {
-  name: 'Ayuda',
+  name: 'Seccion3:',
   icon:'hammer-outline',
-  component:'Seccion3Screen',
+  component:'SeccionScreen',
   description:'Instalación RN'
 },
+{
+  name: 'Seccion4:',
+  icon:'book-outline',
+  component:'SeccionScreen',
+  description:'Mi Primera App'
+},
+
+{
+  name: 'Seccion5:',
+  icon:'book-outline',
+  component:'SeccionScreen',
+  description:'Flex, Position'
+},
+
+{
+  name: 'Seccion6:',
+  icon:'calculator-outline',
+  component:'SeccionScreen',
+  description:'Calculadora( iOS)'
+},
+{
+  name: 'Seccion7:',
+  icon:'map-outline',
+  component:'SeccionScreen',
+  description:'NavegaciónApp'
+},
+{
+  name: 'Seccion8:',
+  icon:'book-outline',
+  component:'SeccionScreen',
+  description:'Tabs'
+},
+
 ]
 
 
-export const HomeScreen = () => {
+export const MiCursoScreen = () => {
   
 
   const renderListHeader = () => {
     return(
       <View style={styles.card}>
      <Text style={styles.title}> Mi Curso</Text>
+
       </View>
     )
   }
@@ -46,7 +82,7 @@ export const HomeScreen = () => {
   const itemSeparator = () => {
     return (
       <View style={{
-            borderBottomWidth:4,
+            borderBottomWidth:2,
             opacity: 0.4,
             marginVertical:8
       }}/>
@@ -58,8 +94,8 @@ export const HomeScreen = () => {
     
     
     <FlatList
-      data={menuItemsHome}
-      renderItem={({item}) => <FlatListMenuItem menuItem={item}/>}
+      data={menuItems}
+      renderItem={({item}) => <FlatListMenuItemM menuItem={item}/>}
       keyExtractor={(item) => item.name}
       ListHeaderComponent={renderListHeader }   
       ItemSeparatorComponent={itemSeparator} 
