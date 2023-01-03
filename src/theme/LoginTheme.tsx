@@ -37,6 +37,14 @@ export const LoginStyles = StyleSheet.create(
             paddingVertical:5,
             borderRadius:100
         },
+        buttoff:{
+            borderWidth:2,
+            backgroundColor:'red',
+            borderColor:'black',
+            paddingHorizontal:20,
+            paddingVertical:5,
+            borderRadius:100
+        },
         newUserContainer:{
                 alignItems:'flex-end',
                 marginTop:10

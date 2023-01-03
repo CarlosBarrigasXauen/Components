@@ -1,10 +1,13 @@
-import React from 'react'
-import { FlatList, Text, View } from 'react-native'
-import { useSafeAreaInsets } from 'react-native-safe-area-context'
+import React, { useEffect } from 'react'
+import { FlatList, Text, View, TouchableOpacity } from 'react-native'
+
 import Icon from 'react-native-vector-icons/Ionicons'
 import { FlatListMenuItem } from '../components/FlatListMenuItem'
 import { menuItem } from '../interfaces/appinterfaces';
 import { styles } from '../theme/appTheme';
+import { StackScreenProps } from '@react-navigation/stack';
+import {  } from 'react-native-gesture-handler';
+import { DrawerScreenProps } from '@react-navigation/drawer'
 
 
 
@@ -18,21 +21,45 @@ const menuItemsHome : menuItem[]= [
 },
 
 {
-  name: 'Acerca De:',
+  name: 'Acerca De la Versión',
   icon:'book-outline',
-  component:'Seccion2Screen',
-  description:'Reforzamiento'
+  component:'AcercaDeScreen',
+  description:''
 },
 {
   name: 'Ayuda',
   icon:'hammer-outline',
-  component:'Seccion3Screen',
-  description:'Instalación RN'
+  component:'AyudaScreen',
+  description:''
 },
 ]
 
+interface Props extends DrawerScreenProps<any,any>{};
 
-export const HomeScreen = () => {
+export const HomeScreen = ({navigation}:Props) => {
+  
+  useEffect(() => {
+
+    navigation.setOptions({
+
+      headerLeft: ()  => 
+
+      <TouchableOpacity
+      
+      onPress={ () => navigation.toggleDrawer()}>
+        
+      <Icon style={{marginLeft:10, alignItems:'center'}}
+      name="menu-outline"
+      color="white"
+      size={25}
+      />
+      
+      </TouchableOpacity>
+    }
+    )
+  
+  
+  }, [])
   
 
   const renderListHeader = () => {
@@ -55,7 +82,7 @@ export const HomeScreen = () => {
   
   return (
     <View style={{flex:1, ...styles.globalMargin}}>
-    
+     
     
     <FlatList
       data={menuItemsHome}

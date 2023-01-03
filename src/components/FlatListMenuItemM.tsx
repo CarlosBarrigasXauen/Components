@@ -3,7 +3,7 @@ import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import  Icon  from 'react-native-vector-icons/Ionicons';
-import { menuItem, SeccionItem } from '../interfaces/appinterfaces';
+import { menuItem } from '../interfaces/appinterfaces';
 
 
 
@@ -18,7 +18,12 @@ export const FlatListMenuItemM = ({menuItem}:Props) => {
     return (
         <TouchableOpacity
         activeOpacity={0.8}
-        onPress={() => navigation.navigate('SeccionScreen')}
+        onPress={() => navigation.navigate('SeccionScreen',
+        {
+            name:menuItem.name,
+            description:menuItem.description
+        })}
+
         >
         <View style={styles.container}>
             <Icon style={{marginLeft:10}}

@@ -3,7 +3,7 @@ import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import  Icon  from 'react-native-vector-icons/Ionicons';
-import { menuItem, SeccionItem } from '../interfaces/appinterfaces';
+import { menuItem } from '../interfaces/appinterfaces';
 
 
 

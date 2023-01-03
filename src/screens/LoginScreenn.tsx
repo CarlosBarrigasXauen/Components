@@ -1,9 +1,10 @@
-import React, { useEffect, useReducer, useState } from 'react'
+import React, { useContext, useEffect, useReducer, useState } from 'react'
 import { Text, TextInput, View, TouchableOpacity, KeyboardAvoidingView, Alert } from 'react-native';
 import { Background } from '../components/Background'
 import { Logo } from '../components/Logo'
 import { LoginStyles } from '../theme/LoginTheme'
 import { StackScreenProps } from '@react-navigation/stack';
+import { AuthContext, AuthState } from '../context/AuthContext';
 
 interface Props extends StackScreenProps<any,any>{
 }
@@ -11,7 +12,8 @@ interface Props extends StackScreenProps<any,any>{
 
 export const LoginScreenn = ({navigation}:Props) => {
 
-
+const {logOut,signIn, authState} = useContext(AuthContext)
+const {isLoggedIn}=authState;
   
   const testCredentials = {
     username: 'ADMIN',
@@ -19,15 +21,15 @@ export const LoginScreenn = ({navigation}:Props) => {
   };
 
   function checkCorreo(email: string, contraseña:string,user:string,password:string) {
-    if (email == user  && contraseña == password) {
+    if (email === user  && contraseña === password) {
       Alert.alert(
         'Login Exitoso', '',
         [{ text: 'OK' }],
         { cancelable: true }
 
       );
-      
-      navigation.navigate('StackNavigator')
+      signIn();
+      navigation.navigate('HomeScreen')
     } else {
       Alert.alert(
         'Login Fallido', '',
@@ -49,6 +51,8 @@ export const LoginScreenn = ({navigation}:Props) => {
    <Background/>
    <KeyboardAvoidingView></KeyboardAvoidingView>
    <View style={LoginStyles.formContainer}>
+
+  
     <Logo/>
     
     
@@ -79,14 +83,38 @@ export const LoginScreenn = ({navigation}:Props) => {
    <Text>{password}</Text>
    
    <View style={LoginStyles.buttonContainer}>
-    <TouchableOpacity
-    activeOpacity={0.8}
-    style={LoginStyles.button}
-    onPress={() => 
-    (checkCorreo(email,password,testCredentials.username,testCredentials.password))}>
+    
+    {
+    
+    !isLoggedIn ? <TouchableOpacity
+                              activeOpacity={0.8}
+                              style={LoginStyles.button}
+                              onPress={() => 
+                                             (checkCorreo(email,password,testCredentials.username,testCredentials.password))}>
         
         <Text>Login</Text>
-    </TouchableOpacity>
+    </TouchableOpacity> : null
+}
+
+
+   </View>
+
+   <View style={LoginStyles.buttonContainer}>
+    
+    {
+    
+    isLoggedIn ? <TouchableOpacity
+                              activeOpacity={0.8}
+                              style={LoginStyles.buttoff}
+                              onPress={() => {
+                                navigation.navigate('HomeScreen'); logOut();}}
+                                             >
+        
+        <Text>LogOut</Text>
+    </TouchableOpacity> : null
+}
+
+
    </View>
 
    </View>

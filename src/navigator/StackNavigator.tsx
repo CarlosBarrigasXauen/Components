@@ -4,15 +4,18 @@ import { LoginScreenn } from '../screens/LoginScreenn';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { MiCursoScreen } from '../screens/MiCursoScreen';
-import { SeccionItem, menuItem } from '../interfaces/appinterfaces';
+import { menuItem } from '../interfaces/appinterfaces';
 import { SeccionScreen } from '../screens/SeccionScreen';
+import { AcercaDeScreen } from '../screens/AcercaDeScreen';
+import { AyudaScreen } from '../screens/AyudaScreen';
 
 export type RootStackParams = {
   LoginScreenn:undefined,
   HomeScreen: undefined,
   SeccionScreen: menuItem,
   MiCursoScreen: undefined,
-
+  AcercaDeScreen: undefined,
+  AyudaScreen:undefined
 }
 
 const Stack = createStackNavigator<RootStackParams>();
@@ -21,14 +24,10 @@ const Stack = createStackNavigator<RootStackParams>();
 export const StackNavigator = () => {
   return (
     <Stack.Navigator
-    initialRouteName='HomeScreen'
+   
       screenOptions={{
-        headerRight: () => (
-           <TouchableOpacity style={{marginLeft:50}}
-           onPress={() => console.log('Hola!')}>
-           <Icon name='menu-outline' />
-         </TouchableOpacity>
-         ),
+
+  
         headerTintColor:"white",
         
         headerStyle: {
@@ -48,6 +47,10 @@ export const StackNavigator = () => {
       <Stack.Screen name="HomeScreen" options={{ title:"Home" }} component={ HomeScreen } />
       <Stack.Screen name="MiCursoScreen" options={{ title:"MiCurso" }} component={ MiCursoScreen } />
       <Stack.Screen name="SeccionScreen" options={{ title:"MiCurso" }} component={ SeccionScreen } />
+      <Stack.Screen name="AcercaDeScreen" options={{ title:"Acerca De" }} component={ AcercaDeScreen } />
+      <Stack.Screen name="AyudaScreen" options={{ title:"Ayuda" }} component={ AyudaScreen } />
+
+
 
 
       
